@@ -42,7 +42,7 @@ jobs:
       - name: Generate configuration file
         run: |
           wget https://downloads.openwrt.org/releases/23.05.0/targets/ipq807x/generic/config.buildinfo -O .config
-          wget https://raw.githubusercontent.com/kiddin9/OpenWrt_x86-r2s-r4s-r5s-N1/master/devices/ipq807x_generic/diy/target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts -O ./target/linux/ipq807x/files-5.15/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
+          wget https://raw.githubusercontent.com/kiddin9/OpenWrt_x86-r2s-r4s-r5s-N1/master/devices/ipq807x_generic/diy/target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts -O ./target/linux/ipq807x/files/arch/arm64/boot/dts/ipq8071-ax6.dts
           make defconfig
 
       - name: Download packages
