@@ -34,7 +34,7 @@ jobs:
       - name: Generate configuration file
         run: |
           wget https://downloads.openwrt.org/releases/25.12.5/targets/qualcommax/ipq807x/config.buildinfo -O .config
-          wget https://raw.githubusercontent.com/coolsnowwolf/lede/refs/heads/master/target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts -O ./target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
+          wget https://raw.githubusercontent.com/coolsnowwolf/lede/refs/heads/master/target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts -O ./target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
           make defconfig
 
       - name: Download packages
