@@ -9,7 +9,7 @@ jobs:
 
     name: Build OpenWrt Firmware
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Initialization environment
@@ -25,7 +25,7 @@ python3-distutils rsync unzip zlib1g-dev file wget
         uses: actions/checkout@v3
         with:
           repository: 'openwrt/openwrt'
-          ref: 'v23.05.0'
+          ref: 'openwrt-25.12'
 
       - name: Update feeds
         run: |
@@ -34,7 +34,7 @@ python3-distutils rsync unzip zlib1g-dev file wget
 
       - name: Generate configuration file
         run: |
-          wget https://downloads.openwrt.org/releases/23.05.0/targets/ipq807x/generic/config.buildinfo -O .config
+          wget https://downloads.openwrt.org/releases/25.12.5/targets/qualcommax/ipq807x/config.buildinfo -O .config
           wget https://raw.githubusercontent.com/coolsnowwolf/lede/20230609/target/linux/ipq807x/files-5.15/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts -O ./target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
           make defconfig
 
