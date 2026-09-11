@@ -1,5 +1,8 @@
 name: OpenWrt-CI
 
+on:
+  push:
+    
 jobs:
 
   build_openwrt:
@@ -29,7 +32,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: 'openwrt/openwrt'
-          ref: 'v23.05.0'
+          ref: 'openwrt-25.12'
 
       - name: Update feeds
         run: |
@@ -38,8 +41,8 @@ jobs:
 
       - name: Generate configuration file
         run: |
-          wget https://downloads.openwrt.org/releases/23.05.0/targets/ipq807x/generic/config.buildinfo -O .config
-          wget https://raw.githubusercontent.com/kiddin9/OpenWrt_x86-r2s-r4s-r5s-N1/master/devices/ipq807x_generic/diy/target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts -O ./target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
+          wget https://downloads.openwrt.org/releases/25.12.5/targets/qualcommax/ipq807x/config.buildinfo -O .config
+          wget https://raw.githubusercontent.com/coolsnowwolf/lede/refs/heads/master/target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts -O ./target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
           make defconfig
 
       - name: Download packages
