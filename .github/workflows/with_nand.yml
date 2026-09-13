@@ -74,4 +74,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: OpenWrt_firmware
-          path: ./bin/targets/**/redmi*
+          path: ./bin/targets/qualcommax/ipq807x/*redmi*
