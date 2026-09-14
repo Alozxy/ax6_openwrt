@@ -58,11 +58,7 @@ jobs:
           rm -rf $(find ./bin/targets/ -type d -name "packages")
           cp -rf $(find ./bin/targets/ -type f -name "*.buildinfo" -o -name "*.manifest") ./artifact/buildinfo/
 
-      - name: Show directory structure
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y tree
-          tree ./bin/targets/
+  
 
       - name: Upload buildinfo
         uses: actions/upload-artifact@v4
